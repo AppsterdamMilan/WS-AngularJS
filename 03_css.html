@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Libs + script -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	
+
+	<style>
+	
+	.forma{
+		margin: 20px 0;
+		background-color: #009eee;
+		height: 200px;
+	}
+
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Collegarsi ai CSS</h1>
+		</div>
+
+		<div class="col-md-12" ng-init="numero = 0">
+			<h3>Classe dinamica</h3>
+			<div class="form-group" ng-class="{'has-error': numero < 5, 'has-success': numero > 5}">
+				<label class="control-label">Inserisci un numero maggiore di 5</label>
+				<input type="number" class="form-control" ng-model="numero">
+			</div>
+		</div>
+
+		<div class="col-md-12" ng-init="larghezza = 200">
+			<h3>Stili in linea</h3>
+			<input type="number" class="form-control" ng-model="larghezza">
+			<div class="forma" style="width: {{larghezza}}px"></div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>

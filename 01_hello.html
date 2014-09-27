@@ -16,8 +16,10 @@
 
 	<div class="container">
 		<h1>AngularJS Hello world</h1>
+		<!-- ng-model assegna una variabile Angular a un elemento -->
 		<input type="text" class="form-control" ng-model="userInput">
 		<p>Stai scrivendo: <strong>{{userInput}}</strong></p>
+		<!-- le {{ }} sono espressioni di binding -->
 		<hr>
 		<div class="row">
 			<div class="col-md-4">
@@ -28,6 +30,7 @@
 			</div>
 			<div class="col-md-4">
 				<p>Totale: <strong>{{num1 + num2}}</strong></p>
+				<!-- Nelle espressioni di binding si possono scrivere comandi Javascript -->
 			</div>
 		</div>
 	</div>

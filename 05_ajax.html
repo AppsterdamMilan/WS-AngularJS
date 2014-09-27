@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Libs + script -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="js/05_ajax.js"></script>
+
+</head>
+<body>
+	
+	<div class="container" ng-controller="filmCtrl">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Chiamate AJAX</h1>
+			</div>
+
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-click="ordina('title')">Titolo</th>
+							<th ng-click="ordina('year')">Anno</th>
+							<th ng-click="ordina('order')">Ordine</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="ep in episodes | orderBy:cosa:reverse">
+							<td>{{ep.title}}</td>
+							<td>{{ep.year}}</td>
+							<td>{{ep.order}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<button class="btn btn-default" ng-click="carica()">
+					Popola tabella
+				</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

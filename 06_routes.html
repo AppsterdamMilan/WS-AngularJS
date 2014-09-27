@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="miaApp">
+<!-- indico il modulo da utilizzare -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Libs + script -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="js/06_routing.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Routing</h1>
+			</div>
+
+			<div class="col-md-12" ng-controller="mainCtrl">
+				<ul class="nav nav-pills">
+					<li ng-class="{'active': current('/home')}"><a href="#/home">Home</a></li>
+					<li ng-class="{'active': current('/user')}"><a href="#/user">Profilo</a></li>
+					<li ng-class="{'active': current('/msg')}"><a href="#/msg">Messaggi</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-12">
+				<hr>
+				<!-- Dove verranno embeddati i file parziali -->
+				<div ng-view></div>
+			</div>
+
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Libs + script -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="js/04_todo.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Mini to-do app</h1>
+				<hr>
+			</div>
+
+			<div class="col-md-12" ng-controller="todoCtrl">
+				<form novalidate ng-submit="aggiungi()">
+					<input type="text" placeholder="digita qui la task da svolgere" ng-model="nuova" class="form-control">
+				</form>
+				
+				<hr>
+
+				<table class="table table-bordered table-striped">
+					<tr ng-repeat="task in tasks">
+						<td>{{task}}</td>
+						<td>
+							<button class="btn btn-xs btn-danger" ng-click="rimuovi($index)">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</td>
+					</tr>
+				</table>
+
+				<p>Task rimaste: <strong>{{tasks.length}}</strong></p>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Libs + script -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="js/02_controller.js"></script>
+
+</head>
+<body>
+	<!-- Assegno un controller a un elemento html -->
+	<div class="container" ng-controller="eventiCtrl">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Controller & eventi</h1>
+			</div>
+
+			<div class="col-md-12">
+				<h3>Evento click</h3>
+				<!-- 
+				ng-click: evento click
+				ng-disabled: disabilita un elemento in base alla condizione
+				ng-show/ng-hide: mostra/nasconde in base alla condizione
+				-->
+				<button class="btn btn-default" ng-click="bloccato = true" ng-disabled="bloccato">
+					Cliccami
+				</button>
+				<button class="btn btn-primary" ng-click="bloccato = false" ng-show="bloccato">
+					Sbloccalo
+				</button>
+			</div>
+
+			<div class="col-md-12">
+				<h3>Iterazioni</h3>
+				<!-- 
+				ng-change: evento change
+				ng-repeat: itera un elemento in base al modello di dati
+				-->
+				<select ng-model="selezione" class="form-control">
+					<option ng-repeat="prodotto in prodotti" value="{{prodotto.prezzo}}">{{prodotto.nome}}</option>
+				</select>
+				<p ng-show="selezione">Questo costa: <strong>{{selezione}}</strong></p>
+			</div>
+
+			<div class="col-md-12">
+				<h3>Manipolare dati</h3>
+				<ul>
+					<li ng-repeat="prodotto in prodotti">{{prodotto.nome}} - {{prodotto.prezzo}}</li>
+				</ul>
+				<button class="btn btn-default" ng-click="aggiungi()">
+					Aggiungi nuovo
+				</button>
+				<button class="btn btn-danger" ng-click="prodotti.pop()">
+					Rimuovi dal fondo
+				</button>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
