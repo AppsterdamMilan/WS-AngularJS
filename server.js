@@ -1,3 +1,6 @@
+// Script by rpflorence
+// https://gist.github.com/rpflorence/701407
+
 var http = require("http"),
     url = require("url"),
     path = require("path"),
